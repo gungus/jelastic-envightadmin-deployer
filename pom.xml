@@ -8,7 +8,7 @@
 	<version>0.1-SNAPSHOT</version>
 	<name>${project.artifactId}</name>
 	<description></description>
-
+ 
 	<pluginRepositories>
 		<pluginRepository>
 			<id>sonatype-oss-public</id>
