@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.envight.admin.jelastic</groupId>
+	<artifactId>envightadmin-deployer</artifactId>
+	<packaging>war</packaging>
+	<version>0.1-SNAPSHOT</version>
+	<name>${project.artifactId}</name>
+	<description></description>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>sonatype-oss-public</id>
+			<url>https://oss.sonatype.org/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<finalName>envightadmin-0.1-RC1</finalName>
+		<plugins>
+			<plugin>
+				<groupId>com.jelastic</groupId>
+				<artifactId>jelastic-maven-plugin</artifactId>
+				<version>1.7</version>
+				<configuration>
+					<email>${jelastic.username}</email>
+					<password>${jelastic.password}</password>
+					<context>${jelastic.context}</context>
+					<environment>${jelastic.environment}</environment>
+					<api_hoster>app.jelastic.elastx.net</api_hoster>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+						<configuration>
+							<failOnMissingWebXml>false</failOnMissingWebXml>
+						</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifact>
+									<groupId>com.envight.admin</groupId>
+									<artifactId>envightadmin</artifactId>
+									<version>0.1-RC1</version>
+									<type>war</type>
+		                  			<overWrite>true</overWrite>
+		                  			<outputDirectory>${basedir}/target</outputDirectory>
+		                  			<destFileName>envightadmin-0.1-RC1.war</destFileName>
+								</artifact>
+                  			</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
