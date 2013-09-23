@@ -23,7 +23,7 @@
 	</pluginRepositories>
 
 	<build>
-		<finalName>envightadmin-0.1-RC1</finalName>
+		<finalName>envightadmin-0.1-RC3</finalName>
 		<plugins>
 			<plugin>
 				<groupId>com.jelastic</groupId>
@@ -61,11 +61,11 @@
 								<artifact>
 									<groupId>com.envight.admin</groupId>
 									<artifactId>envightadmin</artifactId>
-									<version>0.1-RC1</version>
+									<version>0.1-RC3</version>
 									<type>war</type>
 		                  			<overWrite>true</overWrite>
 		                  			<outputDirectory>${basedir}/target</outputDirectory>
-		                  			<destFileName>envightadmin-0.1-RC1.war</destFileName>
+		                  			<destFileName>envightadmin-0.1-RC3.war</destFileName>
 								</artifact>
                   			</artifactItems>
 						</configuration>
